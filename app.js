@@ -20,7 +20,7 @@ var app = express();
 mongoose.connect(process.env.MONGODB_URI);
 
 // view engine setup
-app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs', handlebars: allowInsecurePrototypeAccess(Handlebars)}));
+app.engine('.hbs', expressHbs.engine({defaultLayout: 'layout', extname: '.hbs', handlebars: allowInsecurePrototypeAccess(Handlebars)})); //modif - agregue el .engine
 app.set('view engine', '.hbs');
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
